@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة البيع والشراء</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">صفحة البيع والشراء</h1>
+        <div class="d-flex justify-content-between mb-3">
+            <a href="inventory.html" class="btn btn-secondary">إدارة المخزن</a>
+            <a href="invoices.html" class="btn btn-secondary">إدارة الفواتير</a>
+        </div>
+        <form id="transactionForm" class="mb-4">
+            <div class="form-group">
+                <label for="transactionType">نوع العملية:</label>
+                <select id="transactionType" class="form-control" required>
+                    <option value="sell">بيع</option>
+                    <option value="buy">شراء</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="transactionProduct">المنتج:</label>
+                <select id="transactionProduct" class="form-control" required></select>
+            </div>
+            <div class="form-group">
+                <label for="transactionQuantity">الكمية:</label>
+                <input type="number" id="transactionQuantity" class="form-control" required>
+            </div>
+
+            <button type="button" id="addToCart" class="btn btn-warning btn-block">إضافة إلى السلة</button>
+
+        </form>
+        <div class="form-group">
+            <label for="customerName">اسم العميل:</label>
+            <input type="text" id="customerName" class="form-control" required>
+        </div>
+        <h2>السلة</h2>
+        <ul id="cartList" class="list-group mb-3"></ul>
+        <button type="button" id="completeTransaction" class="btn btn-primary btn-block">إتمام العملية</button>
+    </div>
+    <script src="sales.js"></script>
+</body>
+</html>

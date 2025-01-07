@@ -1,0 +1,48 @@
+body {
+    direction: rtl;
+    background-color: #f8f9fa;
+    text-align: right;
+}
+
+h1, h2 {
+    color: #343a40;
+}
+
+.table {
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+.main-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+.mb{
+    margin-top: 5px;
+}
+#invoicesContainer{
+    margin-bottom: 50px;
+}
