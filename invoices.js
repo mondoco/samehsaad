@@ -10,20 +10,25 @@ function loadInvoices() {
 
     const invoicesContainer = document.getElementById('invoicesContainer');
     invoicesContainer.innerHTML = ''; // تنظيف الحاوية قبل إضافة البيانات الجديدة
+
     function removeOldInvoices() {
         const sixMonthsAgo = Date.now() - (6 * 30 * 24 * 60 * 60 * 1000); // 6 أشهر بالـ milliseconds
         const customers = JSON.parse(localStorage.getItem('customers')) || [];
     
         customers.forEach(customer => {
+            // تصفية الفواتير للاحتفاظ فقط بالفواتير التي لم يمض عليها 6 أشهر
             customer.invoices = customer.invoices.filter(invoice => {
-                return invoice.date >= sixMonthsAgo; // الاحتفاظ فقط بالفواتير التي لم تمض عليها 6 أشهر
+                return new Date(invoice.date).getTime() >= sixMonthsAgo; // الاحتفاظ بالفواتير التي تم إصدارها ضمن الـ 6 أشهر الماضية
             });
         });
     
         // إعادة حفظ البيانات بعد التصفية
         localStorage.setItem('customers', JSON.stringify(customers));
     }
-    removeOldInvoices();    
+
+    // استدعاء الدالة لإزالة الفواتير القديمة
+    removeOldInvoices();
+     
     customers.forEach(customer => {
         // ترتيب الفواتير بناءً على التاريخ من الأحدث إلى الأقدم
         customer.invoices.sort((a, b) => new Date(b.date) - new Date(a.date));
